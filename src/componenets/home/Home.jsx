@@ -27,11 +27,11 @@ const Home = () => {
             JavaScript and React.
             <br />
             <a
-              href="/public/Shakil Khan's Resume.pdf"
+              href="/Shakil_Khans_Resume.pdf"
               download
               className="bg-amber-500 w-28 flex items-center  hover:bg-amber-600 text-white py-2 px-4 rounded mt-4 "
             >
-              Resume <FaDownload className="ms-2"/>
+              Resume <FaDownload className="ms-2" />
             </a>
           </p>
         </div>
@@ -41,7 +41,6 @@ const Home = () => {
             src="https://i.ibb.co/NS7Wrz4/skl.jpg"
             alt=""
           />
-         
         </div>
       </div>
       {/* skills */}

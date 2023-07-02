@@ -62,7 +62,7 @@ const NavBar = () => {
         </div>
         <div className="navbar-end gap-2 flex">
         <a
-              href="/public/Shakil Khan's Resume.pdf"
+              href="/Shakil_Khans_Resume.pdf"
               download
               className="bg-amber-500 flex items-center  hover:bg-amber-600 text-white py-2 px-4 rounded mt-4 "
             >

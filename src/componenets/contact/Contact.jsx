@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import {
   FaEnvelope,
   FaFacebook,
@@ -6,8 +7,33 @@ import {
   FaLinkedin,
   FaPhone,
 } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_ie6iksg",
+        "template_sve4va4",
+        form.current,
+        "-aKhE8Nklxnfk-Rta"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          toast.success("Message sent!");
+          form.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <section id="contact" className=" py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,7 +51,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <div>
               <label
                 htmlFor="name"
@@ -37,7 +63,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="user_name"
                   className="py-3 px-4 border block w-full shadow-sm focus:ring-amber-500 focus:border-amber-500 border-amber-500 rounded-md"
                   placeholder="Your Name"
                 />
@@ -54,7 +80,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="user_email"
                   className="py-3 border border-amber-500 px-4 block w-full shadow-sm focus:ring-amber-500 focus:border-amber-500  rounded-md"
                   placeholder="Your Email"
                 />
@@ -86,6 +112,7 @@ const Contact = () => {
               </button>
             </div>
           </form>
+
           <div className="md:w-1/2 mx-auto mt-28">
             <div className="flex items-center  sm:mt-0">
               <div>
